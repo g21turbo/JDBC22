@@ -1,6 +1,5 @@
 import java.sql.*;
 
-
 public class DemoClass {
 
         /*
@@ -27,40 +26,20 @@ public class DemoClass {
         // 4. Create a statement
         Statement st = con.createStatement();
 
-        // 5. Execute the query & 6. Process the results
+        // 5. Execute the query
         ResultSet resultSet = st.executeQuery(query);
 
+        // 6. Process the results
         String employeeData = "";
-        resultSet.next();
-
-        employeeData = resultSet.getString(1) + " : " +
-                       resultSet.getString(2) + " : " +
-                       resultSet.getString(3) + " : " +
-                       resultSet.getString(4) + " : " +
-                       resultSet.getString(5) + " : " +
-                       resultSet.getString(6);
-        System.out.println(employeeData);
-
-        resultSet.next();
-
-        employeeData = resultSet.getString(1) + " : " +
-                resultSet.getString(2) + " : " +
-                resultSet.getString(3) + " : " +
-                resultSet.getString(4) + " : " +
-                resultSet.getString(5) + " : " +
-                resultSet.getString(6);
-        System.out.println(employeeData);
-
-        resultSet.next();
-
-        employeeData = resultSet.getString(1) + " : " +
-                resultSet.getString(2) + " : " +
-                resultSet.getString(3) + " : " +
-                resultSet.getString(4) + " : " +
-                resultSet.getString(5) + " : " +
-                resultSet.getString(6);
-        System.out.println(employeeData);
-
+        while (resultSet.next()) {
+            employeeData = resultSet.getString(1) + " : " +
+                           resultSet.getString(2) + " : " +
+                           resultSet.getString(3) + " : " +
+                           resultSet.getString(4) + " : " +
+                           resultSet.getString(5) + " : " +
+                           resultSet.getString(6);
+            System.out.println(employeeData);
+        }
 
         // 7. Close
         st.close();
