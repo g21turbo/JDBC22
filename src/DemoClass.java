@@ -1,3 +1,4 @@
+// 1. import
 import java.sql.*;
 
 public class DemoClass {
@@ -14,12 +15,13 @@ public class DemoClass {
 
     public static void main(String[] args) throws Exception {
 
-        // 3. Create the connection
+        // 2. Load and Register the driver
         String url = "jdbc:mysql://localhost:3306/employees";
         String uname = "root";
         String pass = "root";
         String query = "SELECT * FROM employees.employeeinfo";
 
+        // 3. Create the connection
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(url, uname, pass);
 
